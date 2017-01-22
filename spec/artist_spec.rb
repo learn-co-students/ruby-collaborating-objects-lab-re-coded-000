@@ -2,13 +2,13 @@ describe 'Artist' do
   let(:artist) {Artist.new('Michael Jackson')}
 
   describe '#initialize with #name' do
-    it 'accepts a name for the artist' do
+    it 'accepts a name for the song' do
       expect(artist.name).to eq('Michael Jackson')
     end
   end
 
   describe '#name=' do
-    it 'sets the artis name' do
+    it 'sets the song name' do
       artist.name = 'King of Pop'
       expect(artist.name).to eq('King of Pop')
     end
@@ -35,7 +35,7 @@ describe 'Artist' do
     it 'finds or creates an artist by name maintaining uniqueness of objects by name property' do
       artist_1 = Artist.find_or_create_by_name("Michael Jackson")
       artist_2 = Artist.find_or_create_by_name("Michael Jackson")
-      expect(artist_1).to e(artist_2)
+      expect(artist_1).to eq(artist_2)
     end
 
     it 'Creates new instance of Artist if none exist' do
