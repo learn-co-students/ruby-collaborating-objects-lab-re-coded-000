@@ -10,8 +10,8 @@ class Song
     name = []
     name = filename.split('-')
     name = name.collect {|part| part.strip}
-    song = Song.new(name)
-    artist = Artist.find_or_create_by_name(name)
+    song = Song.new(name[1])
+    artist = Artist.find_or_create_by_name(name[0])
     song.artist = artist
     artist.add_song(song)
     song
